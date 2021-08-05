@@ -16,6 +16,9 @@ app.use(cors({
     // origin: "https://singhstyleksndfk3409sdfnsdfk23.herokuapp.com",
     credentials: true,
 }))
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+  }) 
 
 app.get("/", async(req, res) => {
     const data = await AdminModel.findOne({})
