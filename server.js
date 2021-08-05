@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://singhstyleksndfk3409sdfnsdfk23.herokuapp.com",
+    // origin: "https://singhstyleksndfk3409sdfnsdfk23.herokuapp.com",
     credentials: true,
 }))
 
