@@ -4,10 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild":"npm run install-client && npm run build",
     "start": "node server.js",
-    "devStart": "nodemon server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client npm && npm run build --prefix client"
-
+    "client": "cd client && npm start",
+    "devStart": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
