@@ -12,10 +12,7 @@ const AdminModel = require("./db/admin.model.js")
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
-app.use(cors({
-    origin: "https://singhstyleksndfk3409sdfnsdfk23.herokuapp.com:"+ process.env.PORT,
-    credentials: true,
-}))
+// app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 
 
 app.get("/", async(req, res) => {
@@ -28,6 +25,12 @@ app.use("/admin", adminRouter)
 app.use('/upload' , uploadRouter)
 app.use('/delete' ,deleteRouter)
 
+
+// 3: step heroku
+
+if (process.env.NODE_ENV == "production") {
+    app.use(express.static("client/build"))
+}
 
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
